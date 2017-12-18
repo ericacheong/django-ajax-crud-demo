@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'book/js/book.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Books</h1>
+
+  <p>
+    <button type="button" class="btn btn-primary js-create-book"
+                          data-url="{% url 'book_create' %}">
+      <span class="glyphicon glyphicon-plus">+</span>
+      New book
+    </button>
+  </p>
+
+
+  <table class="table" id="book-table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Type</th>
+      <th>Publication date</th>
+      <th>Pages</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      {% include 'book/includes/partial_book_list.html' %}
+    </tbody>
+   </table>
+
+
+      <div class="modal"  role="dialog" id="modal-book">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+               </div>
+          </div>
+      </div>
+
+
+    <!--div class="modal fade" id="modal-book" role="dialog">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5>Test</h5>
+         </div>
+         <div class="modal-body">
+           <p>in text</p>
+         </div>
+       </div>
+     </div>
+   </div-->
+{% endblock %}
